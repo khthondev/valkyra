@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;200;300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 4%;
+    --foreground: 0 0% 100%;
+    --card: 0 0% 6%;
+    --card-foreground: 0 0% 100%;
+    --popover: 0 0% 4%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 0 0% 100%;
+    --primary-foreground: 0 0% 4%;
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 64%;
+    --accent: 0 0% 12%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 12%;
+    --input: 0 0% 12%;
+    --ring: 0 0% 24%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-jetbrains;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-unbounded;
+  }
+  *:focus {
+    @apply outline-none ring-0 ring-offset-0;
+  }
+  *:focus-visible {
+    @apply outline-none ring-0 ring-offset-0;
+  }
+  a, button, input, textarea, select, div {
+    @apply focus:outline-none focus:ring-0 focus:ring-offset-0
+           focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0
+           active:outline-none active:ring-0 active:ring-offset-0;
+  }
+  [role="dialog"] {
+    @apply pointer-events-none;
+  }
+  [role="dialog"] > * {
+    @apply pointer-events-auto focus:outline-none focus:ring-0 focus:ring-offset-0
+           focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0;
+  }
+  [role="dialog"] > div {
+    @apply focus:outline-none focus:ring-0 focus:ring-offset-0
+           focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0;
+  }
+
+  /* Custom Webkit Scrollbar */
+  /* Custom Webkit Scrollbar */
+  ::-webkit-scrollbar {
+    width: 12px; /* Width of the scrollbar */
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: hsl(var(--background));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: hsl(0, 0%, 20%);
+    border-radius: 6px;
+    border: 2px solid hsl(var(--background));
+    box-sizing: border-box;
+    transition: background 0.3s ease-in-out;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: hsl(0, 0%, 35%);
+    transition: background 0.3s ease-in-out;
+  }
+
+  /* Custom Scrollbar for specific elements (optional) */
+  .custom-scrollbar {
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: hsl(0, 0%, 20%) hsl(var(--background)); /* Thumb and track color for Firefox */
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: hsl(0, 0%, 20%);
+    border-radius: 6px;
+    transition: background 0.3s ease-in-out;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background-color: hsl(0, 0%, 35%);
+    transition: background 0.3s ease-in-out;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background-color: hsl(var(--background));
+  }
+}
+
+/* Documentation Prose Styles */
+.prose {
+  @apply text-foreground;
+}
+
+.prose h1 {
+  @apply text-3xl font-bold mb-8 font-unbounded;
+}
+
+.prose h2 {
+  @apply text-2xl font-semibold mt-8 mb-4 font-unbounded;
+}
+
+.prose h3 {
+  @apply text-xl font-semibold mt-6 mb-3 font-unbounded;
+}
+
+.prose h4 {
+  @apply text-lg font-semibold mt-6 mb-3 font-unbounded;
+}
+
+.prose h5 {
+  @apply text-base font-semibold mt-4 mb-2 font-unbounded;
+}
+
+.prose h6 {
+  @apply text-sm font-semibold mt-4 mb-2 font-unbounded;
+}
+
+.prose p {
+  @apply mb-4 text-muted-foreground;
+}
+
+.prose ul {
+  @apply mb-4 list-disc list-inside text-muted-foreground;
+}
+
+.prose ol {
+  @apply mb-4 list-decimal list-inside text-muted-foreground;
+}
+
+.prose li {
+  @apply mb-1;
+}
+
+.prose blockquote {
+  @apply border-l-4 border-accent pl-4 italic my-4 text-muted-foreground;
+}
+
+.prose code {
+  @apply bg-accent px-1.5 py-0.5 rounded text-sm font-jetbrains;
+}
+
+.prose pre {
+  @apply bg-accent p-4 rounded-lg my-4 overflow-x-auto;
+}
+
+.prose pre code {
+  @apply bg-transparent p-0 text-sm;
+}
+
+.prose img {
+  @apply rounded-lg my-8;
+}
+
+.prose table {
+  @apply w-full my-8 border-collapse;
+}
+
+.prose table th {
+  @apply bg-accent text-left p-2 font-semibold border border-border;
+}
+
+.prose table td {
+  @apply p-2 border border-border text-muted-foreground;
+}
+
+.prose hr {
+  @apply my-8 border-t border-border;
+}
+
+.prose a {
+  @apply text-primary hover:underline;
+}
+
+/* Custom Button */
+.neo-button {
+  @apply relative overflow-hidden bg-secondary hover:bg-accent transition-all duration-300
+         border border-border/50 rounded-lg px-6 py-3 text-sm font-medium
+         shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_1px_3px_rgba(0,0,0,0.3)]
+         hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_1px_5px_rgba(0,0,0,0.5)];
+}
+
+.neo-card {
+  @apply bg-card border border-border/50 rounded-lg p-6
+         shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_1px_3px_rgba(0,0,0,0.3)];
+}
